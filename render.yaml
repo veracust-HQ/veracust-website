@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: veracust-website
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /
+    autoDeploy: true
