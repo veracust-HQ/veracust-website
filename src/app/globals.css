@@ -14,3 +14,20 @@ section:hover::after{opacity:1}section:hover{transform:translateY(-2px)}
 .brand-mark:hover{filter:drop-shadow(0 0 18px rgba(169,71,255,.55))}
 @media(hover:none){.panel:hover,a[href]:hover,button:hover,section:hover{transform:none;filter:none}.panel:hover{box-shadow:0 0 60px rgba(65,190,255,.12),inset 0 1px rgba(255,255,255,.05)}}
 @media(prefers-reduced-motion:reduce){.panel,.social-icon,.brand-mark,a[href],button,section,section::after{transition:none!important}}
+
+/* Living ambient backdrop: slow aurora drift + quiet particle shimmer */
+body{position:relative;isolation:isolate;background:#040711}
+body::before{content:"";position:fixed;inset:-35%;z-index:-1;pointer-events:none;opacity:.72;background:
+radial-gradient(ellipse at 18% 24%,rgba(100,20,255,.22),transparent 31%),
+radial-gradient(ellipse at 78% 32%,rgba(0,174,255,.17),transparent 30%),
+radial-gradient(ellipse at 54% 78%,rgba(77,39,190,.16),transparent 34%),
+radial-gradient(ellipse at 92% 88%,rgba(0,112,190,.12),transparent 28%);
+background-size:140% 140%;animation:veracust-aurora 28s ease-in-out infinite alternate;will-change:transform,background-position}
+body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.18;background-image:
+radial-gradient(circle,rgba(174,226,255,.65) 0.7px,transparent 1px),
+radial-gradient(circle,rgba(164,111,255,.7) 0.8px,transparent 1.2px);
+background-size:113px 113px,173px 173px;background-position:0 0,53px 71px;animation:veracust-particles 48s linear infinite}
+main{position:relative;z-index:1;background:transparent}
+@keyframes veracust-aurora{0%{transform:translate3d(-2%,0,0) scale(1);background-position:0% 40%}50%{transform:translate3d(2%,1.5%,0) scale(1.04);background-position:100% 60%}100%{transform:translate3d(-1%,2%,0) scale(1.02);background-position:35% 100%}}
+@keyframes veracust-particles{from{background-position:0 0,53px 71px}to{background-position:0 -420px,53px -590px}}
+@media(prefers-reduced-motion:reduce){body::before,body::after{animation:none!important}}
