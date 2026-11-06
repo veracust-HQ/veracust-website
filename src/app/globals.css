@@ -8,9 +8,9 @@ a[href]:hover,button:hover{transform:translateY(-3px);filter:drop-shadow(0 0 12p
 a[href]:focus-visible,button:focus-visible{outline:2px solid rgba(84,231,255,.8);outline-offset:4px}
 .social-icon:hover{color:#a8f2ff;border-color:rgba(84,231,255,.48);background:rgba(84,231,255,.09);box-shadow:0 0 24px rgba(84,231,255,.18)}
 .social-link:hover{color:#a8f2ff;text-shadow:0 0 16px rgba(84,231,255,.45)}
-section{isolation:isolate;transition:transform .35s ease}
+section{position:relative;isolation:isolate;transition:transform .35s ease}
 section::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:0;transition:opacity .45s ease;background:radial-gradient(ellipse at 50% 45%,rgba(43,158,255,.075),transparent 62%)}
-section:hover::after{opacity:1}
+section:hover::after{opacity:1}section:hover{transform:translateY(-2px)}
 .brand-mark:hover{filter:drop-shadow(0 0 18px rgba(169,71,255,.55))}
 @media(hover:none){.panel:hover,a[href]:hover,button:hover,section:hover{transform:none;filter:none}.panel:hover{box-shadow:0 0 60px rgba(65,190,255,.12),inset 0 1px rgba(255,255,255,.05)}}
 @media(prefers-reduced-motion:reduce){.panel,.social-icon,.brand-mark,a[href],button,section,section::after{transition:none!important}}
