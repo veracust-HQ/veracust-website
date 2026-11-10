@@ -1,16 +1,12 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // Define your base production domain
-  const baseUrl = 'https://onrender.com';
+  // CORRECTED FULL BASE URL
+  const baseUrl = 'https://veracust-website.onrender.com';
 
-  // Add any new sub-routes to this array as your app grows
   const routes = [
     '',        // Home page (/)
-    '/docs',   // Documentation overview
-    // Example format for future expansion:
-    // '/about',
-    // '/dashboard',
+    '/docs',   // Documentation route (/docs)
   ];
 
   return routes.map((route) => ({
