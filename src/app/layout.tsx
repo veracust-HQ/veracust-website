@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Veracust — Your ears can be fooled. Veracust won't.",
   description: "An acoustic authenticity engine exploring how to detect AI-cloned voices through the physical signals hidden in sound.",
   openGraph: { title: "Veracust — Acoustic authenticity", description: "Your ears can be fooled. Veracust won't.", type: "website" }
-};
+},
   verification: {
     google: "sOD0p3SacN9HoQAR597oIvtYpzAgrN-xeHcKUG9WQ-k",
   },
