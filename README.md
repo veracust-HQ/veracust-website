@@ -1,86 +1,140 @@
 <div align="center">
 
 # VERACUST
-### Deterministic Acoustic Authenticity Engine for Enterprise Infrastructure
+### Voice authenticity. Built for a synthetic-media era.
 
-[![API Status](https://img.shields.io/badge/API-Online_200_OK-00E5FF?style=flat-square)](https://voiceguard-core.onrender.com/docs)
-[![Latency SLA](https://img.shields.io/badge/Inference_SLA-%3C150ms_CPU-brightgreen?style=flat-square)]()
-[![Compliance](https://img.shields.io/badge/Data_Privacy-GDPR_%7C_PCI--DSS_Ephemeral-blueviolet?style=flat-square)]()
-[![License](https://img.shields.io/badge/Architecture-Proprietary_Core_v3.4-black?style=flat-square)]()
+**The official Veracust website — introducing our mission, product direction, technology and evaluation access.**
 
-**Engineered by: Utkarsh Dixit**  
-*Founder & Lead Systems Engineer | Veracust*
+[Visit website](https://veracust-website.onrender.com) · [Product Hunt](https://www.producthunt.com/posts/veracust/embed) · [Product repository](https://github.com/veracust-HQ/Veracust-V0.2) · [API documentation](https://veracust-v0-2.onrender.com/docs)
+
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19-149ECA?logo=react)](https://react.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![Hosting](https://img.shields.io/badge/Hosting-Render-46E3B7?logo=render&logoColor=black)](https://render.com/)
 
 </div>
 
 ---
 
-## 1. Executive Summary
+## About Veracust
 
-**Veracust** is an on-premises acoustic forensics engine engineered to protect banking telephony, wealth management verification lines, and customer service infrastructure against real-time generative voice cloning (e.g., ElevenLabs, Speech-to-Speech runtimes, and diffusion vocoders).
+AI-generated voices are changing how people communicate—and creating new challenges for trust, security and verification.
 
-Traditional deepfake detection systems fail in live production because they rely on fragile, black-box deep learning classifiers trained on studio datasets—yielding unacceptable False Positive Rates (FPR) on standard phone lines. 
+**Veracust is developing an audio-authenticity analysis platform** that explores measurable acoustic and signal-level characteristics which may help identify synthetic or manipulated speech. Our mission is to make voice authenticity analysis more accessible to the teams building safer voice-based experiences.
 
-Veracust replaces probabilistic guesswork with **deterministic physical acoustics and digital signal processing (DSP)**. By evaluating ambient room-air entropy, inverse-filtered glottal pulses, and container-level provenance signatures, Veracust executes in **under 150 milliseconds on standard CPU hardware**, ensuring zero customer voice data ever leaves the enterprise perimeter.
+This repository contains the public-facing Veracust marketing website. The product API and analysis service live in the [Veracust product repository](https://github.com/veracust-HQ/Veracust-V0.2).
 
----
+## Website experience
 
-## 2. Multi-Stage Forensic Architecture
+The website introduces:
 
-[ Inbound Audio Stream / Telephony Payload ]
-                                  │
-                                  ▼
-        ┌───────────────────────────────────────────────────┐
-        │ STAGE 1: PRE-INGESTION BYTE PROVENANCE SNIFFER    │
-        │ Scans raw file bytes before decoding/resampling   │
-        │ Catches container signatures, C2PA, and S2S tags  │
-        └─────────────────────────┬─────────────────────────┘
-                                  │
-                                  ▼
-        ┌───────────────────────────────────────────────────┐
-        │ STAGE 2: PHYSICAL & BIOMECHANICAL ANALYSIS (DSP)  │
-        │ • 16th-Order LPC Glottal Residual Inversion       │
-        │ • YIN Fundamental Frequency (F0) Jitter Tracking  │
-        │ • Ambient Noise Floor Zero-Entropy Extraction     │
-        │ • Nyquist Carrier Roll-Off Spectral Analysis      │
-        └─────────────────────────┬─────────────────────────┘
-                                  │
-                                  ▼
-        ┌───────────────────────────────────────────────────┐
-        │ STAGE 3: CODEC-AWARE DYNAMIC WEIGHT SHIFTING      │
-        │ Damps high-frequency metrics on G.711/AMR lines   │
-        │ Anchors decisioning to 60–400Hz baseband acoustics│
-        └─────────────────────────┬─────────────────────────┘
-                                  │
-                                  ▼
-        ┌───────────────────────────────────────────────────┐
-        │ STAGE 4: THREE-TIERED TELEMETRY & DECISION GATE   │
-        │ • AUTHENTIC_HUMAN        (Proceed standard auth)  │
-        │ • SYNTHETIC_DETECTED     (Block transaction)      │
-        │ • INCONCLUSIVE_ESCALATE  (Trigger secondary MFA)  │
-        └───────────────────────────────────────────────────┘
+- The problem of increasingly convincing synthetic voices.
+- Veracust's product vision and research direction.
+- A high-level explanation of the audio-analysis approach.
+- Product evaluation and API access links.
+- Founder and project information.
+- Official social and community channels.
 
-        ---
+## Product links
 
-## 3. Core Forensic Vectors
+| Resource | Link |
+| --- | --- |
+| Official website | https://veracust-website.onrender.com |
+| Product dashboard | https://frontend-01-j8w5.onrender.com/ |
+| API base | https://veracust-v0-2.onrender.com |
+| API documentation | https://veracust-v0-2.onrender.com/docs |
+| Product source code | https://github.com/veracust-HQ/Veracust-V0.2 |
+| Product Hunt | https://www.producthunt.com/posts/veracust/embed |
 
-### 1. Ambient Thermal Room-Air Entropy
-Physical microphones (condenser and dynamic) continuously capture analog ambient air resistance and preamp noise ($-45\text{dB}$ to $-60\text{dB}$ RMS). Synthetic neural vocoders render audio mathematically on cloud chips, generating unnatural **digital zero-noise floors ($\le 10^{-6}\text{ RMS}$)** during speech pauses. Veracust isolates unvoiced intervals to catch digital audio injections.
+Hosted links may be temporarily unavailable when a service is suspended, under maintenance or has exhausted its hosting allowance.
 
-### 2. Linear Predictive Coding (LPC) Glottal Inverse Filtering
-Human speech is produced via vocal cord excitation filtered by the vocal tract. Veracust computes a 16th-order LPC inverse filter to subtract vocal tract resonance and evaluate the raw **glottal residual pulse**. While human vocal fold decay exhibits biological variance, synthetic speech algorithms produce unnaturally rigid pulse decay entropy ($<0.04$).
+## Technology
 
-### 3. Codec-Aware Channel Normalization
-Telephony codecs (G.711, AMR-WB, Opus) and modern neural codecs heavily truncate high-frequency acoustic data. Veracust dynamically analyzes carrier energy ratios: if transmission bandwidth is constrained, the engine automatically down-weights high-frequency metrics and anchors verification inside the protected 60Hz–400Hz human baseband.
+The website is built with:
 
----
+- **Next.js 15** — React framework and application routing.
+- **React 19** — component-based user interface.
+- **Tailwind CSS 4** — styling and responsive layout.
+- **Framer Motion** — interface animation.
+- **Lucide React** — interface icons.
 
-## 4. Live Telemetry & API Payload
+## Run locally
 
-### Endpoint: `POST /v1/verify`
+### Requirements
+
+- Node.js compatible with the installed Next.js version.
+- npm.
+
+### Setup
+
 ```bash
-curl -X 'POST' \
-  'https://veracust-website.onrender.com/v1/verify' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: multipart/form-data' \
-  -F 'file=@telephony_sample.wav'
+git clone https://github.com/veracust-HQ/veracust-website.git
+cd veracust-website
+npm install
+npm run dev
+```
+
+Open http://localhost:3000 in your browser.
+
+### Production build
+
+```bash
+npm run build
+npm start
+```
+
+Run the production build locally before publishing changes.
+
+## Deploy with GitHub and Render
+
+The repository includes a `render.yaml` Blueprint for the website's Render web service. Its current configuration uses:
+
+- Runtime: Node
+- Build command: `npm install && npm run build`
+- Start command: `npm start`
+- Health check: `/`
+- Auto-deploy: enabled in the repository's current Render configuration
+
+To connect a deployment:
+
+1. Import this GitHub repository into Render.
+2. Select the intended branch and confirm the service settings.
+3. Review the build and start commands.
+4. Deploy when hosting capacity is available.
+5. Check the service's deploy events and health status after publishing.
+
+**Hosting note:** Render deployments consume account resources. If the account's included free instance hours have been exhausted, wait until the allowance refreshes or choose an appropriate paid plan before deploying. A GitHub commit can trigger an automatic Render deployment when auto-deploy is enabled for the connected branch.
+
+## Brand and social channels
+
+- [Product Hunt — Veracust](https://www.producthunt.com/posts/veracust/embed)
+- [X](https://x.com/Veracust_HQ)
+- [Facebook](https://www.facebook.com/profile.php?id=61596658978153)
+- [Instagram](https://www.instagram.com/veracust_official/)
+
+## Product status and responsible claims
+
+Veracust is an early-stage product under active development. The website describes the product's current direction and should not be interpreted as a guarantee of detection accuracy, production readiness, customer adoption, regulatory compliance or a service-level commitment.
+
+Performance and suitability depend on recording conditions, codecs, audio quality, language, speaker variation and the synthesis methods being evaluated. Assess the product on representative data before relying on it in consequential workflows.
+
+## Founder
+
+**Utkarsh Dixit** — Founder, Veracust.
+
+## Contact
+
+For product information, evaluation discussions and commercial enquiries, use the contact details published on the [official website](https://veracust-website.onrender.com).
+
+## License
+
+This repository and its contents are proprietary unless otherwise stated. No rights to use, copy, modify or distribute the website source are granted except as expressly agreed in writing by Veracust.
+
+---
+
+<div align="center">
+
+**Veracust**  
+*Your ears can be fooled. Veracust is working to help you look closer.*
+
+</div>
